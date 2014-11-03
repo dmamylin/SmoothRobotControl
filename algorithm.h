@@ -52,8 +52,8 @@ vec2 step(const vec2& rPos, const vec2& tPos, const vec2& rDir, const vec2& tDir
 
 	//"’орошие" значени€: k1 = 1.0, k2 = 10.0, beta = 0.4, lambda = 2.0
 	//”меньша€ k1, можно спр€мить траекторию
-    const double k1 = 5; //TODO: убрать все в параметры
-    const double k2 = 2;
+    const double k1 = 1.0; //TODO: убрать все в параметры
+    const double k2 = 10.0;
     const double beta = 0.4;
     const double lambda = 2.0;
     const double maxVelocity = 4.0;

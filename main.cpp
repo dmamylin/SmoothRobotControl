@@ -1,5 +1,5 @@
-#ifdef __WIN32__
-    #include <SDL.h>
+#ifdef _WIN32
+    #include <SDL2/SDL.h>
 #elif __linux__
     #include <SDL2/SDL.h>
 #endif
@@ -15,7 +15,7 @@
 #define HEIGHT     768
 #define FILL_COLOR 0x0
 
-#ifdef __WIN32__
+#ifdef _WIN32
 	#undef main
 	#define _CRT_SECURE_NO_WARNINGS
 	#pragma comment(lib, "SDL2.lib")
@@ -181,12 +181,12 @@ int main() {
 					g_rPos += vel.y * g_rDir;								
 				}
 
-				#ifdef __linux__
+				/*#ifdef __linux__
 					system("clear");
-				#elif __WIN32__
+				#elif _WIN32
 					system("cls");
 				#endif
-				printf("Distance to: %lf; on target: %d\n", (endVec - g_rPos).Length(), g_onTarget ? 1 : 0);
+				printf("Distance to: %lf; on target: %d\n", (endVec - g_rPos).Length(), g_onTarget ? 1 : 0);*/
             }
         }
 
