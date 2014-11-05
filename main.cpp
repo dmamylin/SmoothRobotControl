@@ -46,6 +46,7 @@ point2i g_endPoint; //Координата конечной точки (в пользовательской СК, в пиксел
 vec2 g_endDir; //Конечное направление. Должен быть единичной длины (в пользовательской СК)
 vec2 g_rPos(0.0, 0.0); //Положение робота (в пользовательской СК, в пикселях)
 vec2 g_rDir(0.0, 1.0); //Единичный вектор направления робота (в пользовательской СК)
+bool g_backward;
 bool g_onTarget;
 std::list<point2i> path; //Хранит точки пути для отрисовки
 std::list<point2vec2> targets; //Список целей
@@ -54,6 +55,7 @@ void init() {
     g_endPoint = DEFAULT_END_POINT;
     g_endDir = DEFAULT_END_DIR;
     g_onTarget = false;
+    g_backward = false;
 
     targets.push_back(point2<vec2>(vec2(-100.0, -100.0), vec2(0.0, -1.0)));
     targets.push_back(point2<vec2>(vec2(100.0, -100.0), vec2(0.0, 1.0)));
@@ -123,8 +125,10 @@ int main() {
         //Обработка событий
         SDL_PollEvent(&ev);
         if (ev.type == SDL_QUIT || 
-           (ev.type ==SDL_KEYDOWN && ev.key.keysym.sym == SDLK_ESCAPE)) {
+           (ev.type == SDL_KEYDOWN && ev.key.keysym.sym == SDLK_ESCAPE)) {
             run = false;
+        } else if (ev.type == SDL_KEYUP && ev.key.keysym.sym == SDLK_F1) {
+            g_backward = !g_backward;
         } else if (ev.type == SDL_MOUSEBUTTONDOWN && !mousePressed) {
             mousePressed = true;
             if (endPointExists) {
@@ -167,7 +171,7 @@ int main() {
                 }
 
 				if (!g_onTarget) {
-					vec2 vel = step(g_rPos, endVec, g_rDir, g_endDir); //X - угловая скорость, Y - линейная
+					vec2 vel = step(g_rPos, endVec, g_rDir, g_endDir, g_backward); //X - угловая скорость, Y - линейная
 					path.push_back(toScreenCoords(point2i((int)g_rPos.x, (int)g_rPos.y), USER_COORD_CENTER));
 
 					double sinw = sin(vel.x);
