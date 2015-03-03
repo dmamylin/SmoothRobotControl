@@ -17,21 +17,18 @@ class point2
 		point2(const point2<F>& p) : x( T(p.x) ), y( T(p.y) ) { }
 		
 		template <class F>
-		void operator = (const point2<F>& p) 
-		{ 
+		void operator = (const point2<F>& p) { 
 			x = T(p.x); 
 			y = T(p.y); 
 		}
 		
 		template <class F>
-		inline bool operator == (const point2<F>& p)
-		{
+		inline bool operator == (const point2<F>& p) {
 			return ( x == T(p.x) && y == T(p.y) );
 		}
 		
 		template <class F>
-		inline bool operator != (const point2<F>& p)
-		{
+		inline bool operator != (const point2<F>& p) {
 			return !( (*this) == p );
 		}
 };

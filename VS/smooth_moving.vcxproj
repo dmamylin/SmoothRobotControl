@@ -12,8 +12,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\algorithm.h" />
+    <ClInclude Include="..\ColorRGB.h" />
     <ClInclude Include="..\deps\point2.h" />
     <ClInclude Include="..\deps\vec2.h" />
+    <ClInclude Include="..\SDL2PrimitiveDrawer.h" />
+    <ClInclude Include="..\types.h" />
     <ClInclude Include="..\utilities.h" />
   </ItemGroup>
   <ItemGroup>

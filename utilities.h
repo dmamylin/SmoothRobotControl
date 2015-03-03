@@ -5,6 +5,7 @@
 
 #include "deps/point2.h"
 #include "deps/vec2.h"
+#include "types.h"
 
 template<class T>
 point2<T>::point2(const vec2& v) {
@@ -14,7 +15,6 @@ point2<T>::point2(const vec2& v) {
 
 typedef point2<vec2> point2vec2;
 typedef point2<int> point2i;
-typedef unsigned int u32;
 
 template<class T>
 T max(const T& a, const T& b) {

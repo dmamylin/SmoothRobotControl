@@ -1,17 +1,26 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClInclude Include="..\algorithm.h">
-      <Filter>headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\deps\point2.h">
-      <Filter>headers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\utilities.h">
-      <Filter>headers</Filter>
-    </ClInclude>
     <ClInclude Include="..\deps\vec2.h">
       <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\algorithm.h">
+      <Filter>headers\movement</Filter>
+    </ClInclude>
+    <ClInclude Include="..\deps\point2.h">
+      <Filter>headers\utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\utilities.h">
+      <Filter>headers\utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ColorRGB.h">
+      <Filter>headers\utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\types.h">
+      <Filter>headers\utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SDL2PrimitiveDrawer.h">
+      <Filter>headers\utilities</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -20,6 +29,12 @@
     </Filter>
     <Filter Include="sources">
       <UniqueIdentifier>{9f921488-28c0-4195-9407-fc6b30439111}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="headers\movement">
+      <UniqueIdentifier>{c9a41683-5514-4a97-a7d5-3dcb660d2142}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="headers\utilities">
+      <UniqueIdentifier>{605def63-0282-48c3-968b-befe678be4fc}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
