@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClInclude Include="..\algorithm.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\deps\point2.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\utilities.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\deps\vec2.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="headers">
+      <UniqueIdentifier>{6fcbb568-034e-4491-b738-de3c4c9a80cf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sources">
+      <UniqueIdentifier>{9f921488-28c0-4195-9407-fc6b30439111}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\main.cpp">
+      <Filter>sources</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
