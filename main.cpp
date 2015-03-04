@@ -8,11 +8,12 @@
 #include <list>
   
 #include "utilities.h"
+#include "SDL2PrimitivePainter.h"
 #include "algorithm.h"
 
 #define CAPTION    "Smooth path"
-#define WIDTH      1024
-#define HEIGHT     768
+#define WIDTH      800
+#define HEIGHT     600
 #define FILL_COLOR 0x0
 
 #ifdef _WIN32
@@ -51,6 +52,8 @@ bool g_onTarget;
 std::list<point2i> path; //Хранит точки пути для отрисовки
 std::list<point2vec2> targets; //Список целей
 
+SDL2PrimitivePainter g_Painter;
+
 void init() {
     g_endPoint = DEFAULT_END_POINT;
     g_endDir = DEFAULT_END_DIR;
@@ -80,7 +83,7 @@ void drawEndDir(SDL_Surface* display) {
     point2i start = toScreenCoords(g_endPoint, USER_COORD_CENTER);
     point2i end = toScreenCoords(point2i(vec2(g_endPoint.x, g_endPoint.y) + END_VEC_LEN * g_endDir), USER_COORD_CENTER);
 
-    drawLine(display, start.x, start.y, end.x, end.y, END_POINT_COLOR);
+    g_Painter.drawLine(display, start.x, start.y, end.x, end.y, END_POINT_COLOR);
 }
 
 void drawRobot(SDL_Surface* display) {
@@ -94,12 +97,12 @@ void drawRobot(SDL_Surface* display) {
     dstRect.h = ROBOT_H;
 
     SDL_FillRect(display, &dstRect, ROBOT_COLOR);
-    drawLine(display, posOnScreen, dirOnScreen, ROBOT_COLOR);
+    g_Painter.drawLine(display, posOnScreen, dirOnScreen, ROBOT_COLOR);
 }
 
 void drawPath(SDL_Surface* display) {
     for (std::list<point2i>::iterator it = path.begin(); it != path.end(); it++) {
-        setPixel(display, it->x, it->y, 0xFF0000);
+        g_Painter.setPixel(display, it->x, it->y, 0xFF0000);
     }
 }
 

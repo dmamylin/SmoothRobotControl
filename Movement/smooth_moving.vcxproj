@@ -14,7 +14,7 @@
     <ClInclude Include="..\algorithm.h" />
     <ClInclude Include="..\ColorRGB.h" />
     <ClInclude Include="..\point2.h" />
-    <ClInclude Include="..\SDL2PrimitiveDrawer.h" />
+    <ClInclude Include="..\SDL2PrimitivePainter.h" />
     <ClInclude Include="..\types.h" />
     <ClInclude Include="..\utilities.h" />
     <ClInclude Include="..\vec2.h" />

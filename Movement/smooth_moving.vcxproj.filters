@@ -13,13 +13,13 @@
     <ClInclude Include="..\types.h">
       <Filter>headers\utilities</Filter>
     </ClInclude>
-    <ClInclude Include="..\SDL2PrimitiveDrawer.h">
-      <Filter>headers\utilities</Filter>
-    </ClInclude>
     <ClInclude Include="..\vec2.h">
       <Filter>headers\utilities</Filter>
     </ClInclude>
     <ClInclude Include="..\point2.h">
+      <Filter>headers\utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SDL2PrimitivePainter.h">
       <Filter>headers\utilities</Filter>
     </ClInclude>
   </ItemGroup>
