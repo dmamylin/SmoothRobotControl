@@ -3,8 +3,8 @@
 
 #include <math.h>
 
-#include "deps/point2.h"
-#include "deps/vec2.h"
+#include "point2.h"
+#include "vec2.h"
 #include "types.h"
 
 template<class T>

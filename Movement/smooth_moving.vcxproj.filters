@@ -1,14 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClInclude Include="..\deps\vec2.h">
-      <Filter>headers</Filter>
-    </ClInclude>
     <ClInclude Include="..\algorithm.h">
       <Filter>headers\movement</Filter>
-    </ClInclude>
-    <ClInclude Include="..\deps\point2.h">
-      <Filter>headers\utilities</Filter>
     </ClInclude>
     <ClInclude Include="..\utilities.h">
       <Filter>headers\utilities</Filter>
@@ -20,6 +14,12 @@
       <Filter>headers\utilities</Filter>
     </ClInclude>
     <ClInclude Include="..\SDL2PrimitiveDrawer.h">
+      <Filter>headers\utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\vec2.h">
+      <Filter>headers\utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\point2.h">
       <Filter>headers\utilities</Filter>
     </ClInclude>
   </ItemGroup>
