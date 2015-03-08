@@ -1,5 +1,5 @@
-#ifndef SDL2_PRIMITIVE_DRAWER
-#define SDL2_PRIMITIVE_DRAWER
+#ifndef SDL2_PRIMITIVE_PAINTER
+#define SDL2_PRIMITIVE_PAINTER
 
 #include "utilities.h"
 
@@ -8,7 +8,7 @@
 
 class SDL2PrimitivePainter {
 public:
-    void setPixel(SDL_Surface* s, s32 x, s32 y, const ColorRGB& color) {
+    inline void setPixel(SDL_Surface* s, s32 x, s32 y, const ColorRGB& color) {
         ((u32*)s->pixels)[y * s->w + x] = color.getAsNumber();
     }
 

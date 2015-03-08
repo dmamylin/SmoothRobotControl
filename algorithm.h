@@ -3,10 +3,6 @@
 
 #include "utilities.h"
 
-double dotProduct(const vec2& v1, const vec2& v2) {
-    return v1.x*v2.x + v1.y*v2.y;
-}
-
 /*Ќа входе:
     r, theta, delta - те же, что рассчитываютс€ в функции step и
     maxVelocity - верхн€€ граница линейной скорости
@@ -37,8 +33,7 @@ double getLinearVelocity_curvature(double r, double theta, double delta, double 
 
     backward - флаг движени€: false - передом, true - задом. ѕо умолчанию передом.
 Ќа выходе:
-    ƒвумерный вектор вида: (углова€ скорость, линейна€ скорость)
-*/
+    ƒвумерный вектор вида: (углова€ скорость, линейна€ скорость)*/
 vec2 step(const vec2& rPos, const vec2& tPos, const vec2& rDir, const vec2& tDir, bool backward = false) {
     /*r - рассто€ние от робота до цели
     dir - вектор направлени€ на цель. ѕо совместительству - направл€ющий вектор пол€рной оси
@@ -63,8 +58,8 @@ vec2 step(const vec2& rPos, const vec2& tPos, const vec2& rDir, const vec2& tDir
     const double maxVelocity = 4.0;
 
     // осинусы получаем из скал€рного произведени€:
-    cosTheta = dotProduct(dir, tDir) / (dir.Length() * tDir.Length());
-    cosDelta = dotProduct(dir, robotDir) / (dir.Length() * robotDir.Length());
+    cosTheta = dotProduct(dir, tDir) / (dir.length() * tDir.length());
+    cosDelta = dotProduct(dir, robotDir) / (dir.length() * robotDir.length());
 
     //ѕолучим модули углов:
     theta = acos(cosTheta);
@@ -75,7 +70,7 @@ vec2 step(const vec2& rPos, const vec2& tPos, const vec2& rDir, const vec2& tDir
     delta = dotProduct(robotDir, normal) >= 0 ? delta : -delta;
 
     //r - просто длина вектора dir
-    r = rPos == tPos ? 0.0 : dir.Length(); //TODO: сделать сравнение с точностью
+    r = rPos == tPos ? 0.0 : dir.length(); //TODO: сделать сравнение с точностью
 
     linVel = getLinearVelocity_curvature(r, theta, delta, lambda, beta, maxVelocity, k1, k2);
     linVel = backward ? -linVel : linVel;

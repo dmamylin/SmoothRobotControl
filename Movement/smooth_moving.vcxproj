@@ -13,11 +13,22 @@
   <ItemGroup>
     <ClInclude Include="..\algorithm.h" />
     <ClInclude Include="..\ColorRGB.h" />
+    <ClInclude Include="..\debug.h" />
+    <ClInclude Include="..\IMovementData.h" />
+    <ClInclude Include="..\IMovementStrategy.h" />
+    <ClInclude Include="..\mat2.h" />
+    <ClInclude Include="..\MathLib.h" />
+    <ClInclude Include="..\IVelocityController.h" />
     <ClInclude Include="..\point2.h" />
+    <ClInclude Include="..\SDL2Device.h" />
     <ClInclude Include="..\SDL2PrimitivePainter.h" />
-    <ClInclude Include="..\types.h" />
+    <ClInclude Include="..\SimpleMovementData.h" />
+    <ClInclude Include="..\SimpleMovementStrategy.h" />
+    <ClInclude Include="..\SmoothVelocityController.h" />
+    <ClInclude Include="..\SDL2Types.h" />
     <ClInclude Include="..\utilities.h" />
     <ClInclude Include="..\vec2.h" />
+    <ClInclude Include="..\vec3.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\main.cpp" />

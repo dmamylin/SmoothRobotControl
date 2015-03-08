@@ -1,164 +1,144 @@
 #ifndef VEC2_H
-#define VEC2_H
+#define VEC2_H 
 
-#include <math.h>
+#include "SDL2Types.h"
+#include "debug.h"
 
-class vec2
-{
-	public:
-		double x, y;
+class vec2 {            
+public:
+    f64 x, y;
 
-        vec2() : x(0.0f), y(0.0f) { }
-        vec2(double X, double Y) : x(X), y(Y) { }
-        vec2(const vec2& v) : x(v.x), y(v.y) { }
+    inline vec2()              {}
+    inline vec2(f64 x, f64 y)  { this->x = x; this->y = y; }
+    inline vec2(const vec2& v) { x = v.x; y = v.y; }
 
-        friend bool operator == (const vec2&, const vec2&);
-        friend bool operator != (const vec2&, const vec2&);
-        friend const vec2 operator + (const vec2&); //Unary
-		friend vec2 operator + (const vec2&, const vec2&);
-		friend vec2 operator + (const vec2&, const double);
-		friend vec2 operator + (const double, const vec2&);
-		friend const vec2 operator - (const vec2&); //Unary
-		friend vec2 operator - (const vec2&, const vec2&);
-		friend vec2 operator - (const vec2&, const double);
-		friend vec2 operator - (const double, const vec2&);
-		friend vec2 operator * (const vec2&, const double);
-		friend double operator * (const vec2&, const vec2&);
-		friend vec2 operator * (const double, const vec2&);
-		friend vec2 operator / (const vec2&, const double);
-		friend vec2 operator / (const double, const vec2&);
+    vec2& operator=(const vec2&);
 
-        inline double& operator [] (int ind) { return *(&x + ind); }
-        inline double operator [] (int ind) const { return *(&x + ind); }
-        void operator = (const vec2&);
-		void operator /= (const double);
-		void operator *= (const double);
-		void operator += (const double);
-		void operator -= (const double);
-		void operator += (const vec2&);
-		void operator -= (const vec2&);
+    inline f64   length() const;
+            vec2& normalize();
 
-        inline double Length(void) const { return sqrt(x * x + y * y); }
-        void Normalize(void);
+    inline f64  operator[](const size_type i) const;
+    inline f64& operator[](const size_type i);
+
+    inline vec2& operator+=(const vec2&);
+    inline vec2& operator-=(const vec2&);
+
+    template<class T>
+    inline vec2& operator*=(const T&);
+    template<class T>
+    inline vec2& operator/=(const T&);
+
+    friend        vec2 normalize(const vec2&);
+    friend inline f64  dotProduct(const vec2&, const vec2&);
+
+    friend inline const vec2& operator+(const vec2&);
+    friend inline       vec2  operator-(const vec2&);
+    friend inline       vec2  operator+(const vec2&, const vec2&);
+    friend inline       vec2  operator-(const vec2&, const vec2&);
+    friend inline       bool  operator==(const vec2&, const vec2&);
+    friend inline       bool  operator!=(const vec2&, const vec2&);
+
+    template<class T>
+    friend inline vec2 operator*(const T&, const vec2&);
+    template<class T>
+    friend inline vec2 operator/(const vec2&, const T&);
 };
 
-inline bool operator == (const vec2& a, const vec2& b)
-{
-    return ( (a.x == b.x) && (a.y == b.y) );
+vec2& vec2::operator=(const vec2& vector) {
+    x = vector.x;
+    y = vector.y;
+    return *this;
 }
 
-inline bool operator != (const vec2& a, const vec2& b)
-{
-    return !(a == b);
+f64 vec2::length() const {
+    return (f64)sqrt(x*x + y*y);
 }
 
-inline const vec2 operator + (const vec2& v)
-{
-    return v;
+vec2& vec2::normalize() {
+    const f64 len = length();
+    x /= len;
+    y /= len;
+    return *this;
 }
 
-inline vec2 operator + (const vec2& a, const vec2& b)
-{
-	return vec2(a.x + b.x, a.y + b.y);
+f64 vec2::operator[](size_type i) const {
+    ASSERT(i < 2);
+    return *(&x + i);
 }
 
-inline vec2 operator + (const vec2& v, const double k)
-{
-	return vec2(v.x + k, v.y + k);
+f64& vec2::operator[](size_type i) {
+    ASSERT(i < 2);
+    return *(&x + i);
 }
 
-inline vec2 operator + (const double k, const vec2& v)
-{
-	return v + k;
+vec2& vec2::operator+=(const vec2& vector) {
+    x += vector.x;
+    y += vector.y;
+    return *this;
 }
 
-inline const vec2 operator - (const vec2& v)
-{
-	return vec2(-v.x, -v.y);
+vec2& vec2::operator-=(const vec2& vector) {
+    x -= vector.x;
+    y -= vector.y;
+    return *this;
 }
 
-inline vec2 operator - (const vec2& a, const vec2& b)
-{
-	return vec2(a.x - b.x, a.y - b.y);
-}
-inline vec2 operator - (const vec2& v, const double k)
-{
-	return vec2(v.x - k, v.y - k);
+template<class T>
+vec2& vec2::operator*=(const T& scalar) {
+    x *= f64(scalar);
+    y *= f64(scalar);
+    return *this;
 }
 
-inline vec2 operator - (const double k, const vec2& v)
-{
-	return v - k;
+template<class T>
+vec2& vec2::operator/=(const T& scalar) {
+    x /= f64(scalar);
+    y /= f64(scalar);
+    return *this;
 }
 
-inline vec2 operator * (const vec2& v, const double k)
-{
-	return vec2(v.x * k, v.y * k);
+vec2 normalize(const vec2& vector) {
+    const f64 len = vector.length();
+    return vec2(vector.x / len, vector.y / len);
 }
 
-inline double operator * (const vec2& v0, const vec2& v1)
-{
-	return (v0.x * v1.x + v0.y * v1.y);
+f64 dotProduct(const vec2& vector1, const vec2& vector2) {
+    return vector1.x*vector2.x +
+            vector1.y*vector2.y;
 }
 
-inline vec2 operator * (const double k, const vec2& v)
-{
-	return v * k;
+const vec2& operator+(const vec2& vector) {
+    return vector;
 }
 
-inline vec2 operator / (const vec2& v, const double k)
-{
-	return vec2(v.x / k, v.y / k);
+vec2 operator-(const vec2& vector) {
+    return vec2(-vector.x, -vector.y);
 }
 
-inline vec2 operator / (const double k, const vec2& v)
-{
-	return v / k;
+vec2 operator+(const vec2& vector1, const vec2& vector2) {
+    return vec2(vector1.x + vector2.x, vector1.y + vector2.y);
 }
 
-inline void vec2::operator = (const vec2& v)
-{
-	x = v.x;
-	y = v.y;
+vec2 operator-(const vec2& vector1, const vec2& vector2) {
+    return vec2(vector1.x - vector2.x, vector1.y - vector2.y);
 }
 
-inline void vec2::operator /= (const double k)
-{
-	x /= k;
-	y /= k;
+bool operator==(const vec2& vector1, const vec2& vector2) {
+    return vector1.x == vector2.x && vector1.y == vector2.y;
 }
 
-inline void vec2::operator *= (const double k)
-{
-	x *= k;
-	y *= k;
+bool operator!=(const vec2& vector1, const vec2& vector2) {
+    return !(vector1 == vector2);
 }
 
-inline void vec2::operator += (const double k)
-{
-	x += k;
-	y += k;
+template<class T>
+vec2 operator*(const T& scalar, const vec2& vector) {
+    return vec2(f64(scalar) * vector.x, f64(scalar) * vector.y);
 }
 
-inline void vec2::operator -= (const double k)
-{
-	x -= k;
-	y -= k;
-}
-
-inline void vec2::operator += (const vec2& v)
-{
-	(*this) = (*this) + v;
-}
-
-inline void vec2::operator -= (const vec2& v)
-{
-	(*this) = (*this) - v;
-}
-
-inline void vec2::Normalize(void)
-{
-    (*this) /= Length();
+template<class T>
+vec2 operator/(const vec2& vector, const T& scalar) {
+    return vec2(vector.x / f64(scalar), vector.y / f64(scalar));
 }
 
 #endif

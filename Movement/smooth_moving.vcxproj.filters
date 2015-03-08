@@ -10,17 +10,50 @@
     <ClInclude Include="..\ColorRGB.h">
       <Filter>headers\utilities</Filter>
     </ClInclude>
-    <ClInclude Include="..\types.h">
+    <ClInclude Include="..\debug.h">
       <Filter>headers\utilities</Filter>
     </ClInclude>
-    <ClInclude Include="..\vec2.h">
-      <Filter>headers\utilities</Filter>
-    </ClInclude>
-    <ClInclude Include="..\point2.h">
-      <Filter>headers\utilities</Filter>
+    <ClInclude Include="..\SDL2Device.h">
+      <Filter>headers\utilities\SDL2Utilities</Filter>
     </ClInclude>
     <ClInclude Include="..\SDL2PrimitivePainter.h">
-      <Filter>headers\utilities</Filter>
+      <Filter>headers\utilities\SDL2Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SDL2Types.h">
+      <Filter>headers\utilities\SDL2Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\vec3.h">
+      <Filter>headers\utilities\math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\vec2.h">
+      <Filter>headers\utilities\math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MathLib.h">
+      <Filter>headers\utilities\math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\IVelocityController.h">
+      <Filter>headers\movement</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SmoothVelocityController.h">
+      <Filter>headers\movement</Filter>
+    </ClInclude>
+    <ClInclude Include="..\IMovementStrategy.h">
+      <Filter>headers\movement</Filter>
+    </ClInclude>
+    <ClInclude Include="..\point2.h">
+      <Filter>headers\utilities\math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SimpleMovementStrategy.h">
+      <Filter>headers\movement</Filter>
+    </ClInclude>
+    <ClInclude Include="..\IMovementData.h">
+      <Filter>headers\movement</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SimpleMovementData.h">
+      <Filter>headers\movement</Filter>
+    </ClInclude>
+    <ClInclude Include="..\mat2.h">
+      <Filter>headers\utilities\math</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -35,6 +68,12 @@
     </Filter>
     <Filter Include="headers\utilities">
       <UniqueIdentifier>{605def63-0282-48c3-968b-befe678be4fc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="headers\utilities\SDL2Utilities">
+      <UniqueIdentifier>{555d6dc5-2a51-4dc8-8513-7379cee21a7f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="headers\utilities\math">
+      <UniqueIdentifier>{7ea8a375-6cb6-44b2-a711-68bfeff79e1f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
