@@ -4,6 +4,9 @@
 #include "SDL2Types.h"
 #include "debug.h"
 
+template<class T>
+class point2;
+
 class vec2 {            
 public:
     f64 x, y;
@@ -11,6 +14,8 @@ public:
     inline vec2()              {}
     inline vec2(f64 x, f64 y)  { this->x = x; this->y = y; }
     inline vec2(const vec2& v) { x = v.x; y = v.y; }
+    template<class T>
+    inline vec2(const point2<T>&);
 
     vec2& operator=(const vec2&);
 

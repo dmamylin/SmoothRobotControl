@@ -9,7 +9,7 @@ class point2
 	public:
 		T x, y;
 		
-		point2() : x(0), y(0) { }
+		point2() { }
         point2(const T X, const T Y) : x(X), y(Y) { }
         point2(const vec2&);
 

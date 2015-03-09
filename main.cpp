@@ -10,7 +10,6 @@
 #include "utilities.h"
 #include "SDL2Device.h"
 #include "SDL2PrimitivePainter.h"
-//#include "algorithm.h"
 #include "SmoothVelocityController.h"
 
 #define CAPTION    "Smooth g_path"
@@ -50,9 +49,9 @@ vec2 g_endDir; // онечное направление. ƒолжен быть единичной длины (в пользовате
 vec2 g_rPos(0.0, 0.0); //ѕоложение робота (в пользовательской — , в пиксел€х)
 vec2 g_rDir(0.0, 1.0); //≈диничный вектор направлени€ робота (в пользовательской — )
 bool g_onTarget;
+
 std::list<point2i> g_path; //’ранит точки пути дл€ отрисовки
 std::list<point2vec2> g_targets; //—писок целей
-
 SDL2PrimitivePainter g_Painter;
 
 void init() {
@@ -67,58 +66,34 @@ void init() {
 	g_targets.push_back(point2<vec2>(vec2(-100.0, -100.0), vec2(1.0, 0.0)));
 }
 
-void drawEndPoint(SDL_Surface* display) {
-    SDL_Rect dstRect;
-    point2i posOnScreen = toScreenCoords(g_endPoint, USER_COORD_CENTER);
+//¬ременное решение, чтобы не загромождать
+#include "DrawFunctions.h"
 
-    dstRect.x = posOnScreen.x - END_POINT_W / 2;
-    dstRect.y = posOnScreen.y - END_POINT_H / 2;
-    dstRect.w = END_POINT_W;
-    dstRect.h = END_POINT_H;
-
-    SDL_FillRect(display, &dstRect, END_POINT_COLOR);
+// Ќа входе: 2 цели в пользовательской системе координат
+// Ќа выходе: четырехмерный вектор вида:
+//            x - расто€ние между ними
+//            y - путевой угол робота в точке target1
+//            z - путевой угол цели в точке target2
+//            w - желательна€ линейна€ скорость в точке target2
+vec4 motionTargetBetween(IVelocityController* velocityController,
+    const point2<vec2>& target1, const point2<vec2>& target2, f64 desiredSpeed) {
+    vec3 newCoordinates = fromGlobalToLocal(target1.x, target2.x, target1.y, target2.y);
+    velocityController->run(newCoordinates)
 }
 
-void drawEndDir(SDL_Surface* display) {
-    point2i start = toScreenCoords(g_endPoint, USER_COORD_CENTER);
-    point2i end = toScreenCoords(point2i(vec2(g_endPoint.x, g_endPoint.y) + END_VEC_LEN * g_endDir), USER_COORD_CENTER);
+// Ќа входе: 1. список пар точек {(P1,P2),(P2,P3),...,(P(n-1),Pn)} (целей) в пользовательской системе координат
+//           ѕерерабатываетс€ и сохран€етс€ в:
+//           2. список четырехмерных векторов вида:
+//              x - рассто€ние между P(i-1) и P(i), i=2,3,...,n
+//              y - путевой угол робота в точке P(i-1)
+//              z - путевой угол цели, когда робот находитс€ в P(i-1)
+//              w - желательна€ линейна€ скорость в точке P(i)
+void generateMotionTargets(IVelocityController* velocity,
+    const std::list<point2vec2>& targets, std::list<vec4>& waypoints) {
 
-    g_Painter.drawLine(display, start.x, start.y, end.x, end.y, END_POINT_COLOR);
 }
 
-void drawRobot(SDL_Surface* display) {
-    SDL_Rect dstRect;
-    point2i posOnScreen = toScreenCoords(point2i(g_rPos), USER_COORD_CENTER);
-    point2i dirOnScreen = toScreenCoords(point2i(ROBOT_DIR_LEN * g_rDir + g_rPos), USER_COORD_CENTER);
-
-    dstRect.x = posOnScreen.x - ROBOT_W / 2;
-    dstRect.y = posOnScreen.y - ROBOT_H / 2;
-    dstRect.w = ROBOT_W;
-    dstRect.h = ROBOT_H;
-
-    SDL_FillRect(display, &dstRect, ROBOT_COLOR);
-    g_Painter.drawLine(display, posOnScreen, dirOnScreen, ROBOT_COLOR);
-}
-
-void drawPath(SDL_Surface* display) {
-    for (std::list<point2i>::iterator it = g_path.begin(); it != g_path.end(); it++) {
-        g_Painter.setPixel(display, it->x, it->y, 0xFF0000);
-    }
-}
-
-void drawPolygonalChain(SDL_Surface* display) {
-    auto itPrev = g_path.begin();
-    auto itCurr = g_path.begin();
-    if (!g_path.empty()) {
-        itCurr++;
-    }
-
-    for (; itCurr != g_path.end(); itCurr++, itPrev++) {
-        g_Painter.drawLine(display, *itPrev, *itCurr, ColorRGB(255, 0, 0));
-    }
-}
-
-s32 main() {
+int main() {
     SDL2Device device;
     bool endPointExists = true;
     bool mousePressed = false;
@@ -138,13 +113,13 @@ s32 main() {
         } else if (ev.type == SDL_MOUSEBUTTONDOWN && !mousePressed) {
             mousePressed = true;
             if (endPointExists) {
-                g_endPoint = fromScreenCoords(point2i(ev.button.x, ev.button.y), USER_COORD_CENTER);
+                g_endPoint = g_Painter.fromScreenCoords(point2i(ev.button.x, ev.button.y), USER_COORD_CENTER);
                 endPointExists = false;
             } else {
                 s32 dx, dy;
                 point2i inUserCoords;
 
-                inUserCoords = fromScreenCoords(device.getMousePosition(), USER_COORD_CENTER);
+                inUserCoords = g_Painter.fromScreenCoords(device.getMousePosition(), USER_COORD_CENTER);
 
                 dx = inUserCoords.x - g_endPoint.x;
                 dy = inUserCoords.y - g_endPoint.y;
@@ -181,7 +156,7 @@ s32 main() {
                     vec3 robotCoordinates = fromGlobalToLocal(g_rPos, endVec,
                         g_rDir, g_endDir);
                     velocity->run(robotCoordinates.x, robotCoordinates.y, robotCoordinates.z);
-					g_path.push_back(toScreenCoords(point2i((s32)g_rPos.x, (s32)g_rPos.y), USER_COORD_CENTER));
+					g_path.push_back(g_Painter.toScreenCoords(point2i((s32)g_rPos.x, (s32)g_rPos.y), USER_COORD_CENTER));
 
                     g_rDir = rotationMatrix2D(velocity->getAngularVelocity()) * g_rDir;
 					g_rDir.normalize();
@@ -196,7 +171,7 @@ s32 main() {
             point2i inUserCoords;
 
             SDL_GetMouseState(&mouseX, &mouseY);
-            inUserCoords = fromScreenCoords(point2i(mouseX, mouseY), USER_COORD_CENTER);
+            inUserCoords = g_Painter.fromScreenCoords(point2i(mouseX, mouseY), USER_COORD_CENTER);
 
             dx = inUserCoords.x - g_endPoint.x;
             dy = inUserCoords.y - g_endPoint.y;

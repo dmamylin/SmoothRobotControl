@@ -14,6 +14,7 @@
     <ClInclude Include="..\algorithm.h" />
     <ClInclude Include="..\ColorRGB.h" />
     <ClInclude Include="..\debug.h" />
+    <ClInclude Include="..\DrawFunctions.h" />
     <ClInclude Include="..\IMovementData.h" />
     <ClInclude Include="..\IMovementStrategy.h" />
     <ClInclude Include="..\mat2.h" />
@@ -29,6 +30,7 @@
     <ClInclude Include="..\utilities.h" />
     <ClInclude Include="..\vec2.h" />
     <ClInclude Include="..\vec3.h" />
+    <ClInclude Include="..\vec4.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\main.cpp" />

@@ -55,6 +55,12 @@
     <ClInclude Include="..\mat2.h">
       <Filter>headers\utilities\math</Filter>
     </ClInclude>
+    <ClInclude Include="..\DrawFunctions.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\vec4.h">
+      <Filter>headers\utilities\math</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="headers">

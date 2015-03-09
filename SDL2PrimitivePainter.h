@@ -8,8 +8,26 @@
 
 class SDL2PrimitivePainter {
 public:
+    point2i fromScreenCoords(const point2i& pointOnScreen, const point2i& newCenter) {
+        int newX = pointOnScreen.x - newCenter.x;
+        int newY = newCenter.y - pointOnScreen.y;
+
+        return point2i(newX, newY);
+    }
+
+    point2i toScreenCoords(const point2i& oldPoint, const point2i& oldCenter) {
+        int newX = oldPoint.x + oldCenter.x;
+        int newY = oldCenter.y - oldPoint.y;
+
+        return point2i(newX, newY);
+    }
+
     inline void setPixel(SDL_Surface* s, s32 x, s32 y, const ColorRGB& color) {
         ((u32*)s->pixels)[y * s->w + x] = color.getAsNumber();
+    }
+
+    inline void setPixel(SDL_Surface* s, const point2i& point, const ColorRGB& color) {
+        setPixel(s, point.x, point.y, color);
     }
 
     void drawLine(SDL_Surface* s, s32 x1, s32 y1, s32 x2, s32 y2, const ColorRGB& color) {

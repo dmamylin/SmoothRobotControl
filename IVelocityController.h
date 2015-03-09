@@ -14,8 +14,8 @@ public:
         angularVelocity(0.0) {}
     virtual ~IVelocityController() {}
 
-    f64 getLinearVelocity() { return linearVelocity; }
-    f64 getAngularVelocity() { return angularVelocity; }
+    f64 getLinearVelocity() const { return linearVelocity; }
+    f64 getAngularVelocity() const { return angularVelocity; }
 
     virtual void run(f64 distanceToTarget, f64 headingAngle,
         f64 targetHeadingAngle) = 0;

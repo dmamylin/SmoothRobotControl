@@ -15,8 +15,8 @@ public:
     inline vec3()              {}
     inline vec3(f64 x, f64 y, f64 z)  { this->x = x; this->y = y; this->z = z; }
     inline vec3(const vec3& v) { x = v.x; y = v.y; z = v.z; }
-    inline vec3(const vec2&, f64);
-    inline vec3(f64, const vec2&);
+    inline vec3(const vec2& xy, f64 z);
+    inline vec3(f64 x, const vec2& yz);
 
     vec3& operator=(const vec3&);
 

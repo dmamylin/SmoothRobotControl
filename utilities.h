@@ -4,24 +4,9 @@
 #include <math.h>
 
 #include "debug.h"
-#include "point2.h"
 #include "MathLib.h"
 #include "SDL2Types.h"
 #include "ColorRGB.h"
-
-point2i fromScreenCoords(const point2i& pointOnScreen, const point2i& newCenter) {
-    int newX = pointOnScreen.x - newCenter.x;
-    int newY = newCenter.y - pointOnScreen.y;
-
-    return point2i(newX, newY);
-}
-
-point2i toScreenCoords(const point2i& oldPoint, const point2i& oldCenter) {
-    int newX = oldPoint.x + oldCenter.x;
-    int newY = oldCenter.y - oldPoint.y;
-
-    return point2i(newX, newY);
-}
 
 vec3 fromGlobalToLocal(const vec2& robotPosition, const vec2& targetPosition,
     const vec2& robotDirection, const vec2& targetDirection) {
@@ -30,13 +15,13 @@ vec3 fromGlobalToLocal(const vec2& robotPosition, const vec2& targetPosition,
 
     // delta - robot's heading angle
     // theta - target's heading angle
-    double cosTheta = dotProduct(polarAxis, targetDirection) / 
+    f64 cosTheta = dotProduct(polarAxis, targetDirection) / 
         (polarAxis.length() * targetDirection.length());
-    double cosDelta = dotProduct(polarAxis, robotDirection) /
+    f64 cosDelta = dotProduct(polarAxis, robotDirection) /
         (polarAxis.length() * robotDirection.length());
 
-    double theta = acos(cosTheta);
-    double delta = acos(cosDelta);
+    f64 theta = acos(cosTheta);
+    f64 delta = acos(cosDelta);
 
     theta = dotProduct(targetDirection, normal) >= 0.0 ? theta : -theta;
     delta = dotProduct(robotDirection, normal) >= 0.0 ? delta : -delta;

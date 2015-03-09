@@ -49,10 +49,10 @@ public:
         ASSERT(i < 2);
         return vec2(data[0 + i % 2], data[2 + i % 2]);
     }
-    inline vec2& operator[](size_type i) {
+    /*inline vec2& operator[](size_type i) {
         ASSERT(i < 2);
         return vec2(data[0 + i % 2], data[2 + i % 2]);
-    }
+    }*/
     inline mat2& operator=(const mat2& other) {
         for (int i = 0; i < 4; i++) {
             data[i] = other.data[i];

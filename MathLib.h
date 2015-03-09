@@ -10,6 +10,7 @@ void swap(T& a, T& b) {
 
 #include "vec2.h"
 #include "vec3.h"
+#include "vec4.h"
 #include "point2.h"
 #include "mat2.h"
 
@@ -26,6 +27,40 @@ inline T min(const T& a, const T& b) {
     return a <= b ? a : b;
 }
 
+vec4::vec4(const vec3& xyz, f64 w) {
+    x = xyz.x;
+    y = xyz.y;
+    z = xyz.z;
+    this->w = w;
+}
+vec4::vec4(f64 x, const vec3& yzw) {
+    this->x = x;
+    y = yzw.x;
+    z = yzw.y;
+    w = yzw.z;
+}
+
+vec4::vec4(const vec2& xy, f64 z, f64 w) {
+    x = xy.x;
+    y = xy.y;
+    this->z = z;
+    this->w = w;
+}
+
+vec4::vec4(f64 x, const vec2& yz, f64 w) {
+    this->x = x;
+    y = yz.x;
+    z = yz.y;
+    this->w = w;
+}
+
+vec4::vec4(f64 x, f64 y, const vec2& zw) {
+    this->x = x;
+    this->y = y;
+    z = zw.x;
+    w = zw.y;
+}
+
 vec3::vec3(const vec2& xy, f64 z) {
     this->x = xy.x;
     this->y = xy.y;
@@ -36,6 +71,12 @@ vec3::vec3(f64 x, const vec2& yz) {
     this->x = x;
     this->y = yz.x;
     this->z = yz.y;
+}
+
+template<class T>
+vec2::vec2(const point2<T>& point) {
+    x = (f64)point.x;
+    y = (f64)point.y;
 }
 
 template<class T>
