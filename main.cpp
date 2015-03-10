@@ -1,8 +1,4 @@
-#ifdef _WIN32
-    #include <SDL2/SDL.h>
-#elif __linux__
-    #include <SDL2/SDL.h>
-#endif
+#include <SDL2/SDL.h>
 
 #include <stdio.h>
 #include <list>
@@ -96,7 +92,7 @@ int main() {
 
         //Обработка событий
         SDL_PollEvent(&ev);
-        if (ev.type == SDL_QUIT || 
+        if (ev.type == SDL_QUIT ||
            (ev.type == SDL_KEYDOWN && ev.key.keysym.sym == SDLK_ESCAPE)) {
             device.stop();
         } else if (ev.type == SDL_MOUSEBUTTONDOWN && !mousePressed) {

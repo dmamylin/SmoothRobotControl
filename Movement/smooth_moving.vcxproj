@@ -19,6 +19,7 @@
     <ClInclude Include="..\IVelocityController.h" />
     <ClInclude Include="..\point2.h" />
     <ClInclude Include="..\SDL2Device.h" />
+    <ClInclude Include="..\SDL2EventListener.h" />
     <ClInclude Include="..\SDL2PrimitivePainter.h" />
     <ClInclude Include="..\SmoothVelocityController.h" />
     <ClInclude Include="..\SDL2Types.h" />
