@@ -37,20 +37,8 @@
     <ClInclude Include="..\SmoothVelocityController.h">
       <Filter>headers\movement</Filter>
     </ClInclude>
-    <ClInclude Include="..\IMovementStrategy.h">
-      <Filter>headers\movement</Filter>
-    </ClInclude>
     <ClInclude Include="..\point2.h">
       <Filter>headers\utilities\math</Filter>
-    </ClInclude>
-    <ClInclude Include="..\SimpleMovementStrategy.h">
-      <Filter>headers\movement</Filter>
-    </ClInclude>
-    <ClInclude Include="..\IMovementData.h">
-      <Filter>headers\movement</Filter>
-    </ClInclude>
-    <ClInclude Include="..\SimpleMovementData.h">
-      <Filter>headers\movement</Filter>
     </ClInclude>
     <ClInclude Include="..\mat2.h">
       <Filter>headers\utilities\math</Filter>
@@ -60,6 +48,9 @@
     </ClInclude>
     <ClInclude Include="..\vec4.h">
       <Filter>headers\utilities\math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TestVelocityController.h">
+      <Filter>headers\movement</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

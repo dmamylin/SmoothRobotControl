@@ -22,12 +22,22 @@ public:
         return point2i(newX, newY);
     }
 
+    inline bool onSurface(SDL_Surface* s, s32 x, s32 y) {
+        return x >= 0 && y >= 0 && x < s->w && y < s->h;
+    }
+
     inline void setPixel(SDL_Surface* s, s32 x, s32 y, const ColorRGB& color) {
-        ((u32*)s->pixels)[y * s->w + x] = color.getAsNumber();
+        if (onSurface(s, x, y)) {
+            ((u32*)s->pixels)[y * s->w + x] = color.getAsNumber();
+        }        
     }
 
     inline void setPixel(SDL_Surface* s, const point2i& point, const ColorRGB& color) {
         setPixel(s, point.x, point.y, color);
+    }
+
+    inline void setPixelUnsafe(SDL_Surface* s, s32 x, s32 y, const ColorRGB& color) {
+        ((u32*)s->pixels)[y * s->w + x] = color.getAsNumber();
     }
 
     void drawLine(SDL_Surface* s, s32 x1, s32 y1, s32 x2, s32 y2, const ColorRGB& color) {

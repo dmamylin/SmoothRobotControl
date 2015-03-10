@@ -3,7 +3,7 @@
 
 void drawEndPoint(SDL_Surface* display) {
     SDL_Rect dstRect;
-    point2i posOnScreen = g_Painter.toScreenCoords(g_endPoint, USER_COORD_CENTER);
+    point2i posOnScreen = g_painter.toScreenCoords(g_endPoint, USER_COORD_CENTER);
 
     dstRect.x = posOnScreen.x - END_POINT_W / 2;
     dstRect.y = posOnScreen.y - END_POINT_H / 2;
@@ -14,16 +14,16 @@ void drawEndPoint(SDL_Surface* display) {
 }
 
 void drawEndDir(SDL_Surface* display) {
-    point2i start = g_Painter.toScreenCoords(g_endPoint, USER_COORD_CENTER);
-    point2i end = g_Painter.toScreenCoords(point2i(vec2(g_endPoint.x, g_endPoint.y) + END_VEC_LEN * g_endDir), USER_COORD_CENTER);
+    point2i start = g_painter.toScreenCoords(g_endPoint, USER_COORD_CENTER);
+    point2i end = g_painter.toScreenCoords(point2i(vec2(g_endPoint.x, g_endPoint.y) + END_VEC_LEN * g_endDir), USER_COORD_CENTER);
 
-    g_Painter.drawLine(display, start.x, start.y, end.x, end.y, END_POINT_COLOR);
+    g_painter.drawLine(display, start.x, start.y, end.x, end.y, END_POINT_COLOR);
 }
 
 void drawRobot(SDL_Surface* display) {
     SDL_Rect dstRect;
-    point2i posOnScreen = g_Painter.toScreenCoords(point2i(g_rPos), USER_COORD_CENTER);
-    point2i dirOnScreen = g_Painter.toScreenCoords(point2i(ROBOT_DIR_LEN * g_rDir + g_rPos), USER_COORD_CENTER);
+    point2i posOnScreen = g_painter.toScreenCoords(point2i(g_rPos), USER_COORD_CENTER);
+    point2i dirOnScreen = g_painter.toScreenCoords(point2i(ROBOT_DIR_LEN * g_rDir + g_rPos), USER_COORD_CENTER);
 
     dstRect.x = posOnScreen.x - ROBOT_W / 2;
     dstRect.y = posOnScreen.y - ROBOT_H / 2;
@@ -31,13 +31,19 @@ void drawRobot(SDL_Surface* display) {
     dstRect.h = ROBOT_H;
 
     SDL_FillRect(display, &dstRect, ROBOT_COLOR);
-    g_Painter.drawLine(display, posOnScreen, dirOnScreen, ROBOT_COLOR);
+    g_painter.drawLine(display, posOnScreen, dirOnScreen, ROBOT_COLOR);
 }
 
 void drawPath(SDL_Surface* display) {
     for (std::list<point2i>::iterator it = g_path.begin(); it != g_path.end(); it++) {
-        g_Painter.setPixel(display, it->x, it->y, 0xFF0000);
+        g_painter.setPixel(display, it->x, it->y, 0xFF0000);
     }
+}
+
+void drawRoboTargetLine(SDL_Surface* display) {
+    g_painter.drawLine(display,
+        g_painter.toScreenCoords(g_rPos, USER_COORD_CENTER),
+        g_painter.toScreenCoords(g_endPoint, USER_COORD_CENTER), ColorRGB(0, 0, 255));
 }
 
 void drawPolygonalChain(SDL_Surface* display) {
@@ -48,7 +54,7 @@ void drawPolygonalChain(SDL_Surface* display) {
     }
 
     for (; itCurr != g_path.end(); itCurr++, itPrev++) {
-        g_Painter.drawLine(display, *itPrev, *itCurr, ColorRGB(255, 0, 0));
+        g_painter.drawLine(display, *itPrev, *itCurr, ColorRGB(255, 0, 0));
     }
 }
 

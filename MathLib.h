@@ -1,6 +1,8 @@
 #ifndef MATH_LIB_H
 #define MATH_LIB_H
 
+#include <math.h>
+
 template<class T>
 void swap(T& a, T& b) {
     T c = b;
@@ -25,6 +27,14 @@ inline T max(const T& a, const T& b) {
 template<class T>
 inline T min(const T& a, const T& b) {
     return a <= b ? a : b;
+}
+
+inline f64 degToRad(f64 deg) {
+    return deg * M_PI / 180.0;
+}
+
+inline f64 radToDeg(f64 rad) {
+    return rad * 180.0 / M_PI;
 }
 
 vec4::vec4(const vec3& xyz, f64 w) {
