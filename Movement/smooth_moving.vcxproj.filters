@@ -49,7 +49,10 @@
     <ClInclude Include="..\TestVelocityController.h">
       <Filter>headers\movement</Filter>
     </ClInclude>
-    <ClInclude Include="..\SDL2EventListener.h">
+    <ClInclude Include="..\SDL2IEventListener.h">
+      <Filter>headers\utilities\SDL2Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SDL2IEventManager.h">
       <Filter>headers\utilities\SDL2Utilities</Filter>
     </ClInclude>
   </ItemGroup>

@@ -2,17 +2,21 @@
 #define SDL2_DEVICE_H
 
 #include <SDL2\SDL.h>
+#include <list>
 
 #include "utilities.h"
 #include "ColorRGB.h"
 #include "SDL2Types.h"
+#include "SDL2IEventManager.h"
 
-class SDL2Device {
+class SDL2Device : public SDL2IEventManager, SDL2IEventListener {
 private:
     bool run;
     SDL_Window* window;
     SDL_Renderer* renderer;
     SDL_Surface* display;
+
+    std::list<SDL2IEventListener*> eventListeners;
 
     SDL2Device(const SDL2Device&);
 public:
@@ -53,6 +57,34 @@ public:
     }
 
     inline SDL_Surface* getDisplaySurface() { return display;  }
+
+    void pollEvent() {
+        SDL_Event ev;
+
+        SDL_PollEvent(&ev);
+        notifyListeners(ev);
+    }
+
+    void update(const SDL_Event& ev) {
+        if (ev.type == SDL_QUIT ||
+            (ev.type == SDL_KEYDOWN && ev.key.keysym.sym == SDLK_ESCAPE)) {
+            this->stop();
+        }
+    }
+
+    void addListener(SDL2IEventListener* listener) {
+        eventListeners.push_back(listener);
+    }
+
+    void removeListener(SDL2IEventListener* listener) {
+        eventListeners.remove(listener);
+    }
+
+    void notifyListeners(const SDL_Event& ev) {
+        for (auto it = eventListeners.begin(); it != eventListeners.end(); it++) {
+            (*it)->update(ev);
+        }
+    }
 };
 
 #endif
