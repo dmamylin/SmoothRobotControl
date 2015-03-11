@@ -3,33 +3,41 @@
 
 class vec2;
 
-template <class T>
+template<class T>
 class point2
 {
 	public:
 		T x, y;
 		
 		point2() { }
-        point2(const T X, const T Y) : x(X), y(Y) { }
+        point2(const T& X, const T& Y) : x(X), y(Y) { }
         point2(const vec2&);
+		point2(const point2<T>& p) : x(p.x), y(p.y) { }
+		
+		point2<T>& operator=(const point2<T>& p) { 
+			x = p.x;
+			y = p.y;
+			return *this;
+		}
+		
+		inline bool operator==(const point2<F>& p) {
+			return (x == p.x && y == p.y);
+		}
+		
+		inline bool operator!=(const point2<F>& p) {
+			return !((*this) == p);
+		}
 
-        template <class F>
-		point2(const point2<F>& p) : x( T(p.x) ), y( T(p.y) ) { }
-		
-		template <class F>
-		void operator = (const point2<F>& p) { 
-			x = T(p.x); 
-			y = T(p.y); 
+		inline point2<T> operator+(const point2<T>& lhs, const point2<T>& rhs) {
+			return point2<T>(lhs.x + rhs.x, lhs.y + rhs.y);
 		}
-		
-		template <class F>
-		inline bool operator == (const point2<F>& p) {
-			return ( x == T(p.x) && y == T(p.y) );
+
+		inline point2<T> operator-(const point2<T>& lhs, const point2<T>& rhs) {
+			return point2<T>(lhs.x - rhs.x, lhs.y - rhs.y);
 		}
-		
-		template <class F>
-		inline bool operator != (const point2<F>& p) {
-			return !( (*this) == p );
+
+		inline point2<T> operator*(const T& scalar, const point2<T>& point) {
+			return point2<T>(scalar * point.x, scalar * point.y);
 		}
 };
 
