@@ -19,24 +19,42 @@ class point2
 			y = p.y;
 			return *this;
 		}
+
+        point2<T>& operator+=(const point2<T>& p) {
+            x += p.x;
+            y += p.y;
+            return *this;
+        }
+
+        point2<T>& operator-=(const point2<T>& p) {
+            x -= p.x;
+            y -= p.y;
+            return *this;
+        }
+
+        point2<T>& operator*=(const T& scalar) {
+            x *= scalar;
+            y *= scalar;
+            return *this;
+        }
 		
-		inline bool operator==(const point2<F>& p) {
+        inline friend bool operator==(const point2<F>& p) {
 			return (x == p.x && y == p.y);
 		}
 		
-		inline bool operator!=(const point2<F>& p) {
+        inline friend bool operator!=(const point2<F>& p) {
 			return !((*this) == p);
 		}
 
-		inline point2<T> operator+(const point2<T>& lhs, const point2<T>& rhs) {
+        inline friend point2<T> operator+(const point2<T>& lhs, const point2<T>& rhs) {
 			return point2<T>(lhs.x + rhs.x, lhs.y + rhs.y);
 		}
 
-		inline point2<T> operator-(const point2<T>& lhs, const point2<T>& rhs) {
+        inline friend point2<T> operator-(const point2<T>& lhs, const point2<T>& rhs) {
 			return point2<T>(lhs.x - rhs.x, lhs.y - rhs.y);
 		}
 
-		inline point2<T> operator*(const T& scalar, const point2<T>& point) {
+		inline friend point2<T> operator*(const T& scalar, const point2<T>& point) {
 			return point2<T>(scalar * point.x, scalar * point.y);
 		}
 };

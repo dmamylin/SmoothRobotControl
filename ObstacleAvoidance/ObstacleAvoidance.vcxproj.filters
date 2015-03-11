@@ -39,9 +39,6 @@
     <ClInclude Include="..\SDL2Device.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\SDL2EventListener.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\SDL2PrimitivePainter.h">
       <Filter>Header Files</Filter>
     </ClInclude>
