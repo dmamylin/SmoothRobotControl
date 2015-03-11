@@ -1,7 +1,7 @@
 #ifndef COLOR_RGB_H
 #define COLOR_RGB_H
 
-#include "SDL2Types.h"
+#include "types.h"
 
 class ColorRGB {
 private:

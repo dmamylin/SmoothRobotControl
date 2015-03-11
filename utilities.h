@@ -5,7 +5,7 @@
 
 #include "debug.h"
 #include "MathLib.h"
-#include "SDL2Types.h"
+#include "types.h"
 #include "ColorRGB.h"
 
 vec3 fromGlobalToLocal(const vec2& robotPosition, const vec2& targetPosition,

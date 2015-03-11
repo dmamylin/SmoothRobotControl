@@ -3,11 +3,14 @@
 
 #include <math.h>
 
-#include "SDL2Types.h"
+#include "types.h"
 #include "IVelocityController.h"
 
 class SmoothVelocityController : public IVelocityController {
 private:
+    f64 linearVelocity;
+    f64 angularVelocity;
+
     SmoothVelocityController(const SmoothVelocityController&);
 
     //"Хорошие" значения: k1 = 1.0, k2 = 10.0, beta = 0.4, lambda = 2.0
@@ -33,7 +36,12 @@ private:
     }
 
 public:
-    SmoothVelocityController() : IVelocityController() {}
+    SmoothVelocityController() :
+        linearVelocity(0.0),
+        angularVelocity(0.0) {}
+
+    f64 getLinearVelocity() const { return linearVelocity; }
+    f64 getAngularVelocity() const { return angularVelocity; }
 
     void run(f64 distanceToTarget, f64 headingAngle,
         f64 targetHeadingAngle) {

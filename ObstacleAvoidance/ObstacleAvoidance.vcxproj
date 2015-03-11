@@ -13,6 +13,7 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{FC7706F9-6B74-4A2D-9902-0AD740BB6B11}</ProjectGuid>
     <RootNamespace>ObstacleAvoidance</RootNamespace>
+    <ProjectName>ObstaclesAvoidance</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -62,24 +63,27 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\ColorRGB.h" />
     <ClInclude Include="..\debug.h" />
-    <ClInclude Include="..\IMovementData.h" />
-    <ClInclude Include="..\IMovementStrategy.h" />
-    <ClInclude Include="..\IVelocityController.h" />
+    <ClInclude Include="..\EventTypes.h" />
+    <ClInclude Include="..\IEvent.h" />
+    <ClInclude Include="..\IEventListener.h" />
+    <ClInclude Include="..\IEventManager.h" />
     <ClInclude Include="..\mat2.h" />
     <ClInclude Include="..\MathLib.h" />
     <ClInclude Include="..\point2.h" />
-    <ClInclude Include="..\SDL2Device.h" />
-    <ClInclude Include="..\SDL2PrimitivePainter.h" />
-    <ClInclude Include="..\SDL2Types.h" />
-    <ClInclude Include="..\SmoothVelocityController.h" />
-    <ClInclude Include="..\TestVelocityController.h" />
+    <ClInclude Include="..\SDL2Application.h" />
+    <ClInclude Include="..\SDL2Event.h" />
     <ClInclude Include="..\pair.h" />
-    <ClInclude Include="..\utilities.h" />
+    <ClInclude Include="..\SDL2EventManager.h" />
+    <ClInclude Include="..\types.h" />
     <ClInclude Include="..\vec2.h" />
     <ClInclude Include="..\vec3.h" />
     <ClInclude Include="..\vec4.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\ObstaclesAvoidance.cpp" />
+    <ClCompile Include="..\SDL2Application.cpp" />
+    <ClCompile Include="..\SDL2EventManager.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

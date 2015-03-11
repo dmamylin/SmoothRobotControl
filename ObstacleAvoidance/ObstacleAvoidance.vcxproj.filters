@@ -19,39 +19,18 @@
     <Filter Include="Header Files\SDL2Utilities">
       <UniqueIdentifier>{6633530a-755f-4339-a16e-325dca97bdea}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\interfaces">
+      <UniqueIdentifier>{4e40f69a-b802-45a7-b08d-3ffc2ed24039}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\constants">
+      <UniqueIdentifier>{e2fda9d0-d3e5-415b-83b1-6b4a1b1a6f42}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\SDL2Utilities">
+      <UniqueIdentifier>{726fed88-b279-4338-a6be-25bff8479e16}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\ColorRGB.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\debug.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\IMovementData.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\IMovementStrategy.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\IVelocityController.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\SDL2Device.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\SDL2PrimitivePainter.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\SDL2Types.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\SmoothVelocityController.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\TestVelocityController.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\utilities.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\MathLib.h">
@@ -75,5 +54,40 @@
     <ClInclude Include="..\pair.h">
       <Filter>Header Files\math</Filter>
     </ClInclude>
+    <ClInclude Include="..\IEvent.h">
+      <Filter>Header Files\interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="..\IEventManager.h">
+      <Filter>Header Files\interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="..\IEventListener.h">
+      <Filter>Header Files\interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SDL2Application.h">
+      <Filter>Header Files\SDL2Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SDL2Event.h">
+      <Filter>Header Files\SDL2Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\EventTypes.h">
+      <Filter>Header Files\constants</Filter>
+    </ClInclude>
+    <ClInclude Include="..\types.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SDL2EventManager.h">
+      <Filter>Header Files\SDL2Utilities</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\ObstaclesAvoidance.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\SDL2Application.cpp">
+      <Filter>Source Files\SDL2Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\SDL2EventManager.cpp">
+      <Filter>Source Files\SDL2Utilities</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

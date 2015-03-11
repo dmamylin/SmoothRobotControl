@@ -1,21 +1,14 @@
 #ifndef MOVEMENT_STRATEGY_H
 #define MOVEMENT_STRATEGY_H
 
-#include "SDL2Types.h"
+#include "types.h"
 
 class IVelocityController {
-protected:
-    f64 linearVelocity;
-    f64 angularVelocity;
-
 public:
-    IVelocityController() :
-        linearVelocity(0.0),
-        angularVelocity(0.0) {}
     virtual ~IVelocityController() {}
 
-    f64 getLinearVelocity() const { return linearVelocity; }
-    f64 getAngularVelocity() const { return angularVelocity; }
+    virtual f64 getLinearVelocity() const = 0;
+    virtual f64 getAngularVelocity() const = 0;
 
     virtual void run(f64 distanceToTarget, f64 headingAngle,
         f64 targetHeadingAngle) = 0;

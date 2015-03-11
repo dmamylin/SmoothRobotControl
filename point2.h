@@ -38,12 +38,12 @@ class point2
             return *this;
         }
 		
-        inline friend bool operator==(const point2<F>& p) {
-			return (x == p.x && y == p.y);
+        inline friend bool operator==(const point2<T>& p1, const point2<T>& p2) {
+			return (p1.x == p2.x && p1.y == p2.y);
 		}
 		
-        inline friend bool operator!=(const point2<F>& p) {
-			return !((*this) == p);
+        inline friend bool operator!=(const point2<T>& p1, const point2<T>& p2) {
+			return !(p1 == p2);
 		}
 
         inline friend point2<T> operator+(const point2<T>& lhs, const point2<T>& rhs) {

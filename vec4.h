@@ -3,7 +3,7 @@
 
 #include <math.h>
 
-#include "SDL2Types.h"
+#include "types.h"
 #include "debug.h"
 
 class vec2;

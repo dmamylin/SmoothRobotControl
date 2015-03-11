@@ -1,7 +1,7 @@
 #ifndef VEC2_H
 #define VEC2_H 
 
-#include "SDL2Types.h"
+#include "types.h"
 #include "debug.h"
 
 template<class T>
