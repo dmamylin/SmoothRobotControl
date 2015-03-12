@@ -3,6 +3,7 @@
 #include "SDL2Event.h"
 #include "debug.h"
 #include "SDL2EventManager.h"
+#include "SDL2TimeCounter.h"
 
 #include "SDL2Application.h"
 
@@ -28,12 +29,13 @@ bool SDL2Application::init(s32 windowWidth, s32 windowHeight, const char* window
     appRenderer = SDL_CreateRenderer(appWindow, -1, SDL_RENDERER_ACCELERATED);
     appDisplay = SDL_CreateRGBSurface(0, windowWidth, windowHeight, 32, 0, 0, 0, 0);
     eventManager = new SDL2EventManager();
+    timeCounter = new SDL2TimeCounter();
 
     if (eventManager) {
         eventManager->addListener(this);
     }
 
-    return appWindow && appRenderer && appDisplay && eventManager;
+    return appWindow && appRenderer && appDisplay && eventManager && timeCounter;
 }
 
 void SDL2Application::cleanup() {
@@ -41,6 +43,7 @@ void SDL2Application::cleanup() {
     SDL_DestroyRenderer(appRenderer);
     SDL_DestroyWindow(appWindow);
     delete eventManager;
+    delete timeCounter;
 
     SDL_Quit();
 }

@@ -3,6 +3,7 @@
 
 #include "types.h"
 #include "IEventListener.h"
+#include "ITimeCounter.h"
 
 struct SDL_Window;
 struct SDL_Renderer;
@@ -17,6 +18,8 @@ private:
     SDL_Surface* appDisplay;
     
     SDL2EventManager* eventManager;
+
+    ITimeCounter* timeCounter;
 
     bool isRun;
 
@@ -33,6 +36,7 @@ public:
     appRenderer(0),
     appDisplay(0),
     eventManager(0),
+    timeCounter(0),
     isRun(true) {}
 
     int run(s32 windowWidth, s32 windowHeight, const char* windowCaption);

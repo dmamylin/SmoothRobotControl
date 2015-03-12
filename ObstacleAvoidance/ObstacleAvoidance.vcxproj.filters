@@ -87,6 +87,9 @@
     <ClInclude Include="..\WindowsTimeCounter.h">
       <Filter>Header Files\utilities</Filter>
     </ClInclude>
+    <ClInclude Include="..\SDL2TimeCounter.h">
+      <Filter>Header Files\SDL2Utilities</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\ObstaclesAvoidance.cpp">
@@ -100,6 +103,9 @@
     </ClCompile>
     <ClCompile Include="..\WindowsTimeCounter.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\SDL2TimeCounter.cpp">
+      <Filter>Source Files\SDL2Utilities</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

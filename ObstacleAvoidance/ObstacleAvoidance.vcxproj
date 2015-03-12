@@ -76,6 +76,7 @@
     <ClInclude Include="..\SDL2Event.h" />
     <ClInclude Include="..\pair.h" />
     <ClInclude Include="..\SDL2EventManager.h" />
+    <ClInclude Include="..\SDL2TimeCounter.h" />
     <ClInclude Include="..\types.h" />
     <ClInclude Include="..\vec2.h" />
     <ClInclude Include="..\vec3.h" />
@@ -86,6 +87,7 @@
     <ClCompile Include="..\ObstaclesAvoidance.cpp" />
     <ClCompile Include="..\SDL2Application.cpp" />
     <ClCompile Include="..\SDL2EventManager.cpp" />
+    <ClCompile Include="..\SDL2TimeCounter.cpp" />
     <ClCompile Include="..\WindowsTimeCounter.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
