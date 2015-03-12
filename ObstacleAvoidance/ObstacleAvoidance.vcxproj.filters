@@ -28,6 +28,9 @@
     <Filter Include="Source Files\SDL2Utilities">
       <UniqueIdentifier>{726fed88-b279-4338-a6be-25bff8479e16}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\utilities">
+      <UniqueIdentifier>{3f89c1a7-6a05-4dcc-b35f-e18aa74e5cb8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\debug.h">
@@ -78,6 +81,12 @@
     <ClInclude Include="..\SDL2EventManager.h">
       <Filter>Header Files\SDL2Utilities</Filter>
     </ClInclude>
+    <ClInclude Include="..\ITimeCounter.h">
+      <Filter>Header Files\interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="..\WindowsTimeCounter.h">
+      <Filter>Header Files\utilities</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\ObstaclesAvoidance.cpp">
@@ -88,6 +97,9 @@
     </ClCompile>
     <ClCompile Include="..\SDL2EventManager.cpp">
       <Filter>Source Files\SDL2Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\WindowsTimeCounter.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

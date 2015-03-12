@@ -68,6 +68,7 @@
     <ClInclude Include="..\IEvent.h" />
     <ClInclude Include="..\IEventListener.h" />
     <ClInclude Include="..\IEventManager.h" />
+    <ClInclude Include="..\ITimeCounter.h" />
     <ClInclude Include="..\mat2.h" />
     <ClInclude Include="..\MathLib.h" />
     <ClInclude Include="..\point2.h" />
@@ -79,11 +80,13 @@
     <ClInclude Include="..\vec2.h" />
     <ClInclude Include="..\vec3.h" />
     <ClInclude Include="..\vec4.h" />
+    <ClInclude Include="..\WindowsTimeCounter.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\ObstaclesAvoidance.cpp" />
     <ClCompile Include="..\SDL2Application.cpp" />
     <ClCompile Include="..\SDL2EventManager.cpp" />
+    <ClCompile Include="..\WindowsTimeCounter.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
