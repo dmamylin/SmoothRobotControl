@@ -4,10 +4,13 @@
 #include "debug.h"
 #include "SDL2EventManager.h"
 #include "SDL2TimeCounter.h"
+#include "IPlayground.h"
 
 #include "SDL2Application.h"
 
-int SDL2Application::run(s32 windowWidth, s32 windowHeight, const char* windowCaption) {
+int SDL2Application::run(IPlayground* playground, s32 windowWidth, s32 windowHeight,
+    const char* windowCaption) {
+
     int initSuccess = 1;
     isRun = false;
 
@@ -39,11 +42,14 @@ bool SDL2Application::init(s32 windowWidth, s32 windowHeight, const char* window
 }
 
 void SDL2Application::cleanup() {
+    eventManager->removeListener(this);
+
     SDL_FreeSurface(appDisplay);
     SDL_DestroyRenderer(appRenderer);
     SDL_DestroyWindow(appWindow);
     delete eventManager;
     delete timeCounter;
+    delete playground;
 
     SDL_Quit();
 }

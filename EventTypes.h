@@ -4,7 +4,9 @@
 #include "types.h"
 
 enum : s32 {
-    EVENT_SDL2
+    EVENT_SDL2,
+    EVENT_PLAYGROUND_KEYBOARD,
+    EVENT_PLAYGROUND_MOUSE
 };
 
 #endif

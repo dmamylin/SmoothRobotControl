@@ -22,14 +22,14 @@
     <Filter Include="Header Files\interfaces">
       <UniqueIdentifier>{4e40f69a-b802-45a7-b08d-3ffc2ed24039}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\constants">
-      <UniqueIdentifier>{e2fda9d0-d3e5-415b-83b1-6b4a1b1a6f42}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\SDL2Utilities">
       <UniqueIdentifier>{726fed88-b279-4338-a6be-25bff8479e16}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\utilities">
       <UniqueIdentifier>{3f89c1a7-6a05-4dcc-b35f-e18aa74e5cb8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\events">
+      <UniqueIdentifier>{bbcd1add-9caa-421c-a36b-75537d46e3f0}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -72,9 +72,6 @@
     <ClInclude Include="..\SDL2Event.h">
       <Filter>Header Files\SDL2Utilities</Filter>
     </ClInclude>
-    <ClInclude Include="..\EventTypes.h">
-      <Filter>Header Files\constants</Filter>
-    </ClInclude>
     <ClInclude Include="..\types.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -90,11 +87,23 @@
     <ClInclude Include="..\SDL2TimeCounter.h">
       <Filter>Header Files\SDL2Utilities</Filter>
     </ClInclude>
+    <ClInclude Include="..\IPlayground.h">
+      <Filter>Header Files\interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ObstacleAvoidancePlayground.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\EventTypes.h">
+      <Filter>Header Files\events</Filter>
+    </ClInclude>
+    <ClInclude Include="..\PlaygroundKeyboardEvent.h">
+      <Filter>Header Files\events</Filter>
+    </ClInclude>
+    <ClInclude Include="..\PlaygroundMouseEvent.h">
+      <Filter>Header Files\events</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\ObstaclesAvoidance.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\SDL2Application.cpp">
       <Filter>Source Files\SDL2Utilities</Filter>
     </ClCompile>
@@ -107,5 +116,14 @@
     <ClCompile Include="..\SDL2TimeCounter.cpp">
       <Filter>Source Files\SDL2Utilities</Filter>
     </ClCompile>
+    <ClCompile Include="..\ObstacleAvoidance.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ObstacleAvoidancePlayground.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
 </Project>

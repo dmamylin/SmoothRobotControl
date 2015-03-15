@@ -5,11 +5,21 @@
 #include "IEventListener.h"
 #include "ITimeCounter.h"
 
+#ifdef _MSC_VER
+    #pragma comment(lib, "SDL2.lib")
+#endif
+
+#ifdef _WIN32
+    #undef main
+#endif
+
 struct SDL_Window;
 struct SDL_Renderer;
 struct SDL_Surface;
 
 class SDL2EventManager;
+
+class IPlayground;
 
 class SDL2Application : public IEventListener {
 private:
@@ -20,6 +30,8 @@ private:
     SDL2EventManager* eventManager;
 
     ITimeCounter* timeCounter;
+
+    IPlayground* playground;
 
     bool isRun;
 
@@ -37,9 +49,11 @@ public:
     appDisplay(0),
     eventManager(0),
     timeCounter(0),
+    playground(0),
     isRun(true) {}
 
-    int run(s32 windowWidth, s32 windowHeight, const char* windowCaption);
+    int run(IPlayground* playground, s32 windowWidth, s32 windowHeight,
+        const char* windowCaption);
 };
 
 #endif

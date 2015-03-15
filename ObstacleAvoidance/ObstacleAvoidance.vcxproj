@@ -13,7 +13,7 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{FC7706F9-6B74-4A2D-9902-0AD740BB6B11}</ProjectGuid>
     <RootNamespace>ObstacleAvoidance</RootNamespace>
-    <ProjectName>ObstaclesAvoidance</ProjectName>
+    <ProjectName>ObstacleAvoidance</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -68,9 +68,13 @@
     <ClInclude Include="..\IEvent.h" />
     <ClInclude Include="..\IEventListener.h" />
     <ClInclude Include="..\IEventManager.h" />
+    <ClInclude Include="..\IPlayground.h" />
     <ClInclude Include="..\ITimeCounter.h" />
     <ClInclude Include="..\mat2.h" />
     <ClInclude Include="..\MathLib.h" />
+    <ClInclude Include="..\ObstacleAvoidancePlayground.h" />
+    <ClInclude Include="..\PlaygroundKeyboardEvent.h" />
+    <ClInclude Include="..\PlaygroundMouseEvent.h" />
     <ClInclude Include="..\point2.h" />
     <ClInclude Include="..\SDL2Application.h" />
     <ClInclude Include="..\SDL2Event.h" />
@@ -84,11 +88,15 @@
     <ClInclude Include="..\WindowsTimeCounter.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\ObstaclesAvoidance.cpp" />
+    <ClCompile Include="..\ObstacleAvoidance.cpp" />
+    <ClCompile Include="..\ObstacleAvoidancePlayground.cpp" />
     <ClCompile Include="..\SDL2Application.cpp" />
     <ClCompile Include="..\SDL2EventManager.cpp" />
     <ClCompile Include="..\SDL2TimeCounter.cpp" />
     <ClCompile Include="..\WindowsTimeCounter.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
