@@ -1,7 +1,7 @@
 #ifndef MOVEMENT_STRATEGY_H
 #define MOVEMENT_STRATEGY_H
 
-#include "types.h"
+#include "../Utilities/MathLib/Types.h"
 
 class IVelocityController {
 public:

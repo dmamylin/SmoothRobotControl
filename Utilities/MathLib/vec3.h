@@ -3,8 +3,8 @@
 
 #include <math.h>
 
-#include "types.h"
-#include "debug.h"
+#include "Types.h"
+#include "..\Debug.h"
 
 class vec2;
 

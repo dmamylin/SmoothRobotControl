@@ -1,59 +1,59 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClInclude Include="..\utilities.h">
-      <Filter>headers\utilities</Filter>
-    </ClInclude>
-    <ClInclude Include="..\ColorRGB.h">
-      <Filter>headers\utilities</Filter>
-    </ClInclude>
-    <ClInclude Include="..\debug.h">
-      <Filter>headers\utilities</Filter>
-    </ClInclude>
-    <ClInclude Include="..\SDL2Device.h">
-      <Filter>headers\utilities\SDL2Utilities</Filter>
-    </ClInclude>
-    <ClInclude Include="..\SDL2PrimitivePainter.h">
-      <Filter>headers\utilities\SDL2Utilities</Filter>
-    </ClInclude>
-    <ClInclude Include="..\SDL2Types.h">
-      <Filter>headers\utilities\SDL2Utilities</Filter>
-    </ClInclude>
-    <ClInclude Include="..\vec3.h">
-      <Filter>headers\utilities\math</Filter>
-    </ClInclude>
-    <ClInclude Include="..\vec2.h">
-      <Filter>headers\utilities\math</Filter>
-    </ClInclude>
-    <ClInclude Include="..\MathLib.h">
-      <Filter>headers\utilities\math</Filter>
-    </ClInclude>
-    <ClInclude Include="..\IVelocityController.h">
+    <ClInclude Include="IVelocityController.h">
       <Filter>headers\movement</Filter>
     </ClInclude>
-    <ClInclude Include="..\SmoothVelocityController.h">
+    <ClInclude Include="SmoothVelocityController.h">
       <Filter>headers\movement</Filter>
     </ClInclude>
-    <ClInclude Include="..\point2.h">
-      <Filter>headers\utilities\math</Filter>
+    <ClInclude Include="TestVelocityController.h">
+      <Filter>headers\movement</Filter>
     </ClInclude>
-    <ClInclude Include="..\mat2.h">
-      <Filter>headers\utilities\math</Filter>
+    <ClInclude Include="..\Utilities\ColorRGB.h">
+      <Filter>headers\Utilities</Filter>
     </ClInclude>
-    <ClInclude Include="..\DrawFunctions.h">
+    <ClInclude Include="..\Utilities\Debug.h">
+      <Filter>headers\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="SDL2Device.h">
+      <Filter>headers\Utilities\SDL2Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="SDL2PrimitivePainter.h">
+      <Filter>headers\Utilities\SDL2Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="DrawFunctions.h">
       <Filter>headers</Filter>
     </ClInclude>
-    <ClInclude Include="..\vec4.h">
-      <Filter>headers\utilities\math</Filter>
+    <ClInclude Include="utilities.h">
+      <Filter>headers\Utilities</Filter>
     </ClInclude>
-    <ClInclude Include="..\TestVelocityController.h">
-      <Filter>headers\movement</Filter>
+    <ClInclude Include="..\Utilities\MathLib\mat2.h">
+      <Filter>headers\Utilities\MathLib</Filter>
     </ClInclude>
-    <ClInclude Include="..\SDL2IEventListener.h">
-      <Filter>headers\utilities\SDL2Utilities</Filter>
+    <ClInclude Include="..\Utilities\MathLib\MathLib.h">
+      <Filter>headers\Utilities\MathLib</Filter>
     </ClInclude>
-    <ClInclude Include="..\SDL2IEventManager.h">
-      <Filter>headers\utilities\SDL2Utilities</Filter>
+    <ClInclude Include="..\Utilities\MathLib\pair.h">
+      <Filter>headers\Utilities\MathLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Utilities\MathLib\point2.h">
+      <Filter>headers\Utilities\MathLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Utilities\MathLib\Types.h">
+      <Filter>headers\Utilities\MathLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Utilities\MathLib\vec2.h">
+      <Filter>headers\Utilities\MathLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Utilities\MathLib\vec3.h">
+      <Filter>headers\Utilities\MathLib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Utilities\MathLib\vec4.h">
+      <Filter>headers\Utilities\MathLib</Filter>
+    </ClInclude>
+    <ClInclude Include="SDL2Application.h">
+      <Filter>headers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -66,18 +66,18 @@
     <Filter Include="headers\movement">
       <UniqueIdentifier>{c9a41683-5514-4a97-a7d5-3dcb660d2142}</UniqueIdentifier>
     </Filter>
-    <Filter Include="headers\utilities">
+    <Filter Include="headers\Utilities">
       <UniqueIdentifier>{605def63-0282-48c3-968b-befe678be4fc}</UniqueIdentifier>
     </Filter>
-    <Filter Include="headers\utilities\SDL2Utilities">
+    <Filter Include="headers\Utilities\SDL2Utilities">
       <UniqueIdentifier>{555d6dc5-2a51-4dc8-8513-7379cee21a7f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="headers\utilities\math">
-      <UniqueIdentifier>{7ea8a375-6cb6-44b2-a711-68bfeff79e1f}</UniqueIdentifier>
+    <Filter Include="headers\Utilities\MathLib">
+      <UniqueIdentifier>{e18da9a7-9dcb-474e-a365-9646e33ad1ec}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\main.cpp">
+    <ClCompile Include="Movement.cpp">
       <Filter>sources</Filter>
     </ClCompile>
   </ItemGroup>

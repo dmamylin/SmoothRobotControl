@@ -11,27 +11,27 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\ColorRGB.h" />
-    <ClInclude Include="..\debug.h" />
-    <ClInclude Include="..\DrawFunctions.h" />
-    <ClInclude Include="..\mat2.h" />
-    <ClInclude Include="..\MathLib.h" />
-    <ClInclude Include="..\IVelocityController.h" />
-    <ClInclude Include="..\point2.h" />
-    <ClInclude Include="..\SDL2Device.h" />
-    <ClInclude Include="..\SDL2IEventListener.h" />
-    <ClInclude Include="..\SDL2IEventManager.h" />
-    <ClInclude Include="..\SDL2PrimitivePainter.h" />
-    <ClInclude Include="..\SmoothVelocityController.h" />
-    <ClInclude Include="..\SDL2Types.h" />
-    <ClInclude Include="..\TestVelocityController.h" />
-    <ClInclude Include="..\utilities.h" />
-    <ClInclude Include="..\vec2.h" />
-    <ClInclude Include="..\vec3.h" />
-    <ClInclude Include="..\vec4.h" />
+    <ClInclude Include="..\Utilities\ColorRGB.h" />
+    <ClInclude Include="..\Utilities\Debug.h" />
+    <ClInclude Include="..\Utilities\MathLib\mat2.h" />
+    <ClInclude Include="..\Utilities\MathLib\MathLib.h" />
+    <ClInclude Include="..\Utilities\MathLib\pair.h" />
+    <ClInclude Include="..\Utilities\MathLib\point2.h" />
+    <ClInclude Include="..\Utilities\MathLib\Types.h" />
+    <ClInclude Include="..\Utilities\MathLib\vec2.h" />
+    <ClInclude Include="..\Utilities\MathLib\vec3.h" />
+    <ClInclude Include="..\Utilities\MathLib\vec4.h" />
+    <ClInclude Include="DrawFunctions.h" />
+    <ClInclude Include="IVelocityController.h" />
+    <ClInclude Include="SDL2Application.h" />
+    <ClInclude Include="SDL2Device.h" />
+    <ClInclude Include="SDL2PrimitivePainter.h" />
+    <ClInclude Include="SmoothVelocityController.h" />
+    <ClInclude Include="TestVelocityController.h" />
+    <ClInclude Include="utilities.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\main.cpp" />
+    <ClCompile Include="Movement.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{31A89B06-4C03-4820-8526-7EA54F547490}</ProjectGuid>

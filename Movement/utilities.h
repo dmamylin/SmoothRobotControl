@@ -3,10 +3,9 @@
 
 #include <math.h>
 
-#include "debug.h"
-#include "MathLib.h"
-#include "types.h"
-#include "ColorRGB.h"
+#include "../Utilities/Debug.h"
+#include "../Utilities/MathLib/MathLib.h"
+#include "../Utilities/MathLib/Types.h"
 
 vec3 fromGlobalToLocal(const vec2& robotPosition, const vec2& targetPosition,
     const vec2& robotDirection, const vec2& targetDirection) {

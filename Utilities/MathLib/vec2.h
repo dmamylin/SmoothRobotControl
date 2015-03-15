@@ -1,8 +1,8 @@
 #ifndef VEC2_H
 #define VEC2_H 
 
-#include "types.h"
-#include "debug.h"
+#include "Types.h"
+#include "..\Debug.h"
 
 template<class T>
 class point2;

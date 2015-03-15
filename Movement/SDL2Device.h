@@ -5,9 +5,8 @@
 #include <list>
 
 #include "utilities.h"
-#include "ColorRGB.h"
-#include "SDL2Types.h"
-#include "SDL2IEventManager.h"
+#include "../Utilities/ColorRGB.h"
+#include "../Utilities/MathLib/Types.h"
 
 class SDL2Device {
 private:

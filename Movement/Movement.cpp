@@ -9,7 +9,7 @@
 #include "SmoothVelocityController.h"
 #include "TestVelocityController.h"
 
-#define CAPTION    "Smooth g_path"
+#define CAPTION    "Smooth movement"
 #define WIDTH      800
 #define HEIGHT     600
 #define FILL_COLOR ColorRGB(0, 0, 0)
@@ -65,18 +65,6 @@ void init() {
 
 //Временное решение, чтобы не загромождать
 #include "DrawFunctions.h"
-
-// На входе: 1. список пар точек {(P1,P2),(P2,P3),...,(P(n-1),Pn)} (целей) в пользовательской системе координат
-//           Перерабатывается и сохраняется в:
-//           2. список четырехмерных векторов вида:
-//              x - расстояние между P(i-1) и P(i), i=2,3,...,n
-//              y - путевой угол робота в точке P(i-1)
-//              z - путевой угол цели, когда робот находится в P(i-1)
-//              w - желательная линейная скорость в точке P(i)
-void generateMotionTargets(IVelocityController* velocity,
-    const std::list<point2vec2>& targets, std::list<vec4>& waypoints) {
-
-}
 
 int main() {
     SDL2Device device;
